@@ -1,1 +1,8 @@
 Arquivo README para as especificações e documentação do projeto.
+
+Tecnologias que serão utilizadas:
+
+Front-End: React com Next
+Back-End: NodeJS com Fastify
+Banco de Dados: Firestore Database (Firebase) ou PostgreSQL
+Testes automatizados: Cypress
