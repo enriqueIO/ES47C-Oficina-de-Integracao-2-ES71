@@ -10,7 +10,7 @@ datasource db {
 model SystemUser {
   id       Int    @id @default(autoincrement())
   name     String @map("nome")
-  userName String @map("usuario")
+  userName String @unique @map("usuario")
   password String @map("senha")
 
   @@map("usuarios")
