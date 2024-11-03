@@ -29,7 +29,7 @@ Cadastro e geração de certificados para os alunos voluntários envolvidos no p
 
 #### 1.2 Definição da Arquitetura em Alto Nível do Sistema
 - **Camada de Apresentação (Frontend)**: Aplicação web construída com React e Next.js.
-- **Camada de Negócios (Backend)**: API RESTful desenvolvida com Node.js e Express.
+- **Camada de Negócios (Backend)**: API RESTful desenvolvida com Node.js e Fastify.
 - **Camada de Dados (Banco de Dados)**: PostgreSQL.
 
 #### 1.3 Definição da Estratégia de Automação de Testes
@@ -38,5 +38,5 @@ Cadastro e geração de certificados para os alunos voluntários envolvidos no p
 
 #### 1.4 Tecnologias Utilizadas no Projeto
 - **Frontend**: React.js com Next.js.
-- **Backend**: Node.js com Express e TypeScript.
+- **Backend**: Node.js com Fastify e TypeScript.
 - **Banco de Dados**: PostgreSQL.
