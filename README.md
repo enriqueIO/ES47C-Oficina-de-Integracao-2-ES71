@@ -40,3 +40,18 @@ Cadastro e geração de certificados para os alunos voluntários envolvidos no p
 - **Frontend**: React.js com Next.js.
 - **Backend**: Node.js com Fastify e TypeScript.
 - **Banco de Dados**: PostgreSQL.
+
+#### 1.5 Arquitetura da aplicação:
+- **Usuário**: Representa a interação direta com o sistema, onde o usuário acessa o frontend.
+- **Frontend**: Desenvolvido com React e Next.js, responsável pela interface de usuário e pela renderização do conteúdo dinâmico no navegador.
+- **Backend**: Implementado em Node.js com Fastify, é o servidor que processa as requisições, gerencia a lógica de negócio e se comunica com o banco de dados.
+- **Banco de Dados**: PostgreSQL é utilizado para armazenar dados de forma persistente, acessível pelo backend para operações de leitura e escrita.
+
+![Diagrama do Projeto](https://github.com/user-attachments/assets/67cedf7e-9066-41cb-b749-23b357286df9)
+
+
+#### 1.6 Esboços da aplicação:
+![WhatsApp Image 2024-10-26 at 15 58 12](https://github.com/user-attachments/assets/1156c0e2-1d6c-4b33-bfbb-b3e1daf413b7) ![WhatsApp Image 2024-10-26 at 15 58 12 (1)](https://github.com/user-attachments/assets/8fe67b86-7c01-4ab3-ad1b-d218ae8491b4)
+![WhatsApp Image 2024-10-26 at 15 58 12 (2)](https://github.com/user-attachments/assets/995f2a85-b67e-4aff-b061-22d5105ec1ba)![WhatsApp Image 2024-10-26 at 15 58 13](https://github.com/user-attachments/assets/07dbb755-7ade-44c1-88d8-3af233c93c27)
+
+
