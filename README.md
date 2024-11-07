@@ -1,24 +1,18 @@
 # Oficina de Integração 2 - ELLP: Ensino Lúdico de Lógica e Programação
 
-## Projeto: Sistema de Cadastro e Geração de Certificados de Alunos Voluntários
+## Sistema de Cadastro e Geração de Certificados de Alunos Voluntários
 
 Este projeto visa desenvolver um sistema para facilitar o cadastro de alunos voluntários e a emissão de certificados de participação no projeto ELLP. 
 
-## Tema Escolhido
-Cadastro e geração de certificados para os alunos voluntários envolvidos no projeto ELLP.
-
-## Membros do Projeto
+## 🤝 Membros do Projeto
 - Henrique Galiano de Moraes
 - Gustavo Morais Alves
 - Gustavo Teodoro do Amaral
 - Enrique Marques
 
-**Local:** Cornélio Procópio, Paraná  
-**Ano:** 2024
+## 📈 Fases do Projeto
 
-## Fases do Projeto
-
-### 1. Planejamento
+### ✏️ 1. Planejamento
 
 #### 1.1 Definição de Requisitos Funcionais
 - **Autenticação**: O sistema permitirá login com usuário e senha.
@@ -47,11 +41,31 @@ Cadastro e geração de certificados para os alunos voluntários envolvidos no p
 - **Backend**: Implementado em Node.js com Fastify, é o servidor que processa as requisições, gerencia a lógica de negócio e se comunica com o banco de dados.
 - **Banco de Dados**: PostgreSQL é utilizado para armazenar dados de forma persistente, acessível pelo backend para operações de leitura e escrita.
 
-![Diagrama do Projeto](https://github.com/user-attachments/assets/67cedf7e-9066-41cb-b749-23b357286df9)
-
+#### Diagrama de arquitetura:
+```mermaid
+graph TD;
+    A(Usuário) --> B(Frontend: React e Next.js);
+    B --> C(Backend: Node.js e Fastfy);
+    C --> B
+    C --> D
+    D(Banco de dados: PostgreSQL e Prisma) --> C
+```
 
 #### 1.6 Esboços da aplicação:
-![WhatsApp Image 2024-10-26 at 15 58 12](https://github.com/user-attachments/assets/1156c0e2-1d6c-4b33-bfbb-b3e1daf413b7) ![WhatsApp Image 2024-10-26 at 15 58 12 (1)](https://github.com/user-attachments/assets/8fe67b86-7c01-4ab3-ad1b-d218ae8491b4)
-![WhatsApp Image 2024-10-26 at 15 58 12 (2)](https://github.com/user-attachments/assets/995f2a85-b67e-4aff-b061-22d5105ec1ba)![WhatsApp Image 2024-10-26 at 15 58 13](https://github.com/user-attachments/assets/07dbb755-7ade-44c1-88d8-3af233c93c27)
+![Login](https://github.com/user-attachments/assets/0354f7d7-a5e9-4f58-8d80-879378958ff6)
+![WhatsApp Image 2024-10-26 at 15 58 12 (1)](https://github.com/user-attachments/assets/8fe67b86-7c01-4ab3-ad1b-d218ae8491b4)
+![WhatsApp Image 2024-10-26 at 15 58 12 (2)](https://github.com/user-attachments/assets/995f2a85-b67e-4aff-b061-22d5105ec1ba)
+![WhatsApp Image 2024-10-26 at 15 58 13](https://github.com/user-attachments/assets/07dbb755-7ade-44c1-88d8-3af233c93c27)  
 
+### 🚀 2. Sprints
+#### Sprint 1
+- Cadastro de professores (coordenadores do ELLP)
+- Cadastro de alunos voluntários
+- Login de professores e alunos
+- Cadastro de workshops
 
+#### Sprint 2
+- Inclusão de alunos voluntários em workshops
+- Geração de certificados para os alunos voluntários
+- Assinatura dos certificados pelo coordenador
+- Busca de certificados para os alunos voluntários
