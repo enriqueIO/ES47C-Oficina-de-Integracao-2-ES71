@@ -1,24 +1,18 @@
 # Oficina de Integração 2 - ELLP: Ensino Lúdico de Lógica e Programação
 
-## Projeto: Sistema de Cadastro e Geração de Certificados de Alunos Voluntários
+## Sistema de Cadastro e Geração de Certificados de Alunos Voluntários
 
 Este projeto visa desenvolver um sistema para facilitar o cadastro de alunos voluntários e a emissão de certificados de participação no projeto ELLP. 
 
-## Tema Escolhido
-Cadastro e geração de certificados para os alunos voluntários envolvidos no projeto ELLP.
-
-## Membros do Projeto
+## 🤝 Membros do Projeto
 - Henrique Galiano de Moraes
 - Gustavo Morais Alves
 - Gustavo Teodoro do Amaral
 - Enrique Marques
 
-**Local:** Cornélio Procópio, Paraná  
-**Ano:** 2024
+## 📈 Fases do Projeto
 
-## Fases do Projeto
-
-### 1. Planejamento
+### ✏️ 1. Planejamento
 
 #### 1.1 Definição de Requisitos Funcionais
 - **Autenticação**: O sistema permitirá login com usuário e senha.
@@ -47,11 +41,42 @@ Cadastro e geração de certificados para os alunos voluntários envolvidos no p
 - **Backend**: Implementado em Node.js com Fastify, é o servidor que processa as requisições, gerencia a lógica de negócio e se comunica com o banco de dados.
 - **Banco de Dados**: PostgreSQL é utilizado para armazenar dados de forma persistente, acessível pelo backend para operações de leitura e escrita.
 
-![Diagrama do Projeto](https://github.com/user-attachments/assets/67cedf7e-9066-41cb-b749-23b357286df9)
-
+#### Diagrama de arquitetura:
+```mermaid
+graph TD;
+A(Front-end: React Js com Next Js) --> B(Pasta App: Contém as rotas das páginas sistema: Página de login, pasta do portal com as outras rotas.);
+A --> C(Pasta Components: Contém os componentes visuais e funcionais do sistema: Formulários, Modais, Páginas, Tabelas, Botões e etc.);
+A --> D(Pasta Lib: Contém as funções assíncronas que fazem as requisições para o backend e também outras funções do sistema.)
+A --> E(Back-end: Node Js com Fastify);
+E --> A;
+E --> F(Pasta Src: Contém o arquivo de inicialização do servidor e as seguintes pastas: Controllers, Services, Repositories, Lib e Routes);
+F --> G(Pasta Repository: Contém as funções que se comunicam com o prisma para a manipulação dos dados do banco de dados);
+F --> H(Pasta Services: Contém as funções que se comunicam com as funções do repository e criam as regras de negócio);
+F --> I(Pasta Controllers: Contém as funções que recebem as requisições do front-end e envia para as funções de service, depois, retornam uma resposta para o front-end);
+F --> J(Pasta Routes: Contém as rotas das apis do back-end);
+F --> K(Pasta Lib: Contém as funções com finalidades específicas: Criptografar senhas, realizar cáculos e etc.);
+E --> L(Pasta Prisma: Contém o banco de dados feito em prisma e as migrations do mesmo);
+L --> E;
+L --> M(Banco de dados: PostgreSQL);
+M --> L;
+    
+```
 
 #### 1.6 Esboços da aplicação:
-![WhatsApp Image 2024-10-26 at 15 58 12](https://github.com/user-attachments/assets/1156c0e2-1d6c-4b33-bfbb-b3e1daf413b7) ![WhatsApp Image 2024-10-26 at 15 58 12 (1)](https://github.com/user-attachments/assets/8fe67b86-7c01-4ab3-ad1b-d218ae8491b4)
-![WhatsApp Image 2024-10-26 at 15 58 12 (2)](https://github.com/user-attachments/assets/995f2a85-b67e-4aff-b061-22d5105ec1ba)![WhatsApp Image 2024-10-26 at 15 58 13](https://github.com/user-attachments/assets/07dbb755-7ade-44c1-88d8-3af233c93c27)
+![Login](https://github.com/user-attachments/assets/0354f7d7-a5e9-4f58-8d80-879378958ff6)
+![WhatsApp Image 2024-10-26 at 15 58 12 (1)](https://github.com/user-attachments/assets/8fe67b86-7c01-4ab3-ad1b-d218ae8491b4)
+![WhatsApp Image 2024-10-26 at 15 58 12 (2)](https://github.com/user-attachments/assets/995f2a85-b67e-4aff-b061-22d5105ec1ba)
+![WhatsApp Image 2024-10-26 at 15 58 13](https://github.com/user-attachments/assets/07dbb755-7ade-44c1-88d8-3af233c93c27)  
 
+### 🚀 2. Sprints
+#### Sprint 1
+- Cadastro de professores (coordenadores do ELLP)
+- Cadastro de alunos voluntários
+- Login de professores e alunos
+- Cadastro de workshops
 
+#### Sprint 2
+- Inclusão de alunos voluntários em workshops
+- Geração de certificados para os alunos voluntários
+- Assinatura dos certificados pelo coordenador
+- Busca de certificados para os alunos voluntários
