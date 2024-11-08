@@ -44,11 +44,22 @@ Este projeto visa desenvolver um sistema para facilitar o cadastro de alunos vol
 #### Diagrama de arquitetura:
 ```mermaid
 graph TD;
-    A(Usuário) --> B(Frontend: React e Next.js);
-    B --> C(Backend: Node.js e Fastfy);
-    C --> B
-    C --> D
-    D(Banco de dados: PostgreSQL e Prisma) --> C
+A(Front-end: React Js com Next Js) --> B(Pasta App: Contém as rotas das páginas sistema: Página de login, pasta do portal com as outras rotas.);
+A --> C(Pasta Components: Contém os componentes visuais e funcionais do sistema: Formulários, Modais, Páginas, Tabelas, Botões e etc.);
+A --> D(Pasta Lib: Contém as funções assíncronas que fazem as requisições para o backend e também outras funções do sistema.)
+A --> E(Back-end: Node Js com Fastify);
+E --> A;
+E --> F(Pasta Src: Contém o arquivo de inicialização do servidor e as seguintes pastas: Controllers, Services, Repositories, Lib e Routes);
+F --> G(Pasta Repository: Contém as funções que se comunicam com o prisma para a manipulação dos dados do banco de dados);
+F --> H(Pasta Services: Contém as funções que se comunicam com as funções do repository e criam as regras de negócio);
+F --> I(Pasta Controllers: Contém as funções que recebem as requisições do front-end e envia para as funções de service, depois, retornam uma resposta para o front-end);
+F --> J(Pasta Routes: Contém as rotas das apis do back-end);
+F --> K(Pasta Lib: Contém as funções com finalidades específicas: Criptografar senhas, realizar cáculos e etc.);
+E --> L(Pasta Prisma: Contém o banco de dados feito em prisma e as migrations do mesmo);
+L --> E;
+L --> M(Banco de dados: PostgreSQL);
+M --> L;
+    
 ```
 
 #### 1.6 Esboços da aplicação:
