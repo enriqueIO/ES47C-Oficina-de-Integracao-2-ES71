@@ -1,9 +1,7 @@
 import { prisma } from "../../lib/prisma";
 
-export const validateLoginRepository = {
-  async validateUser(userName: string) {
-    return prisma.systemUser.findUnique({
-      where: { userName },
-    });
-  },
-};
+export async function validateLoginRepository(userName: string) {
+  return await prisma.systemUser.findUnique({
+    where: { userName },
+  });
+}

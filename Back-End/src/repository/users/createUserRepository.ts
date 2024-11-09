@@ -1,8 +1,6 @@
 import { SystemUser } from "@prisma/client";
 import { prisma } from "../../lib/prisma";
 
-export const createUserRepository = {
-  async createUser(data: Omit<SystemUser, "id">) {
-    return prisma.systemUser.create({ data });
-  },
-};
+export async function createUserRepository(data: Omit<SystemUser, "id">) {
+  return await prisma.systemUser.create({ data });
+}
