@@ -1,0 +1,12 @@
+.toolbar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+  
+.subMenu {
+    margin-left: 24px;
+    border-radius: 5px;
+}
+
+  

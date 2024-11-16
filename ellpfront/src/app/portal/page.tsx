@@ -1,3 +1,5 @@
+import { HomePage } from "@/components/homepage/Homepage";
+
 export default function Portal() {
-  return <h1>Portal</h1>;
+  return <HomePage />;
 }
