@@ -1,3 +1,5 @@
+import { RegisterTeacherPage } from "@/components/registerTeacherPage/RegisterTeacherPage";
+
 export default function RegisterTeacher() {
-  return <h1>Cadastro de Professores</h1>;
+  return <RegisterTeacherPage />;
 }

@@ -16,9 +16,11 @@ import {
   Work,
   ExpandMore,
   ExpandLess,
+  Home
 } from "@mui/icons-material";
 import Image from "next/image";
-import styles from "./sidebar.module.css";
+import styles from "./Sidebar.module.css";
+import { Divider } from "@mui/material";
 
 const drawerWidth = 240;
 
@@ -63,10 +65,20 @@ export function Sidebar() {
             alt="Logo do Ellp"
             width={150}
             height={150}
+            className={styles.logo}
           />
         </Toolbar>
-
+        <Divider />
         <List>
+          {/* Voltar */}
+          <ListItem disablePadding>
+            <ListItemButton onClick={() => redirectToPage("/portal")}>
+              <ListItemIcon>
+                <Home />
+              </ListItemIcon>
+              <ListItemText primary={"Página inicial"} />
+            </ListItemButton>
+            </ListItem>
           {/* Professores */}
           <ListItem disablePadding>
             <ListItemButton onClick={() => toggleSubmenu("teachers")}>
@@ -81,18 +93,14 @@ export function Sidebar() {
             <List className={styles.subMenu}>
               <ListItem disablePadding>
                 <ListItemButton
-                  onClick={() =>
-                    redirectToPage("/portal/registerTeacher")
-                  }
+                  onClick={() => redirectToPage("/portal/registerTeacher")}
                 >
                   <ListItemText primary={"Cadastrar"} />
                 </ListItemButton>
               </ListItem>
               <ListItem disablePadding>
                 <ListItemButton
-                  onClick={() =>
-                    redirectToPage("/portal/manageTeacher")
-                  }
+                  onClick={() => redirectToPage("/portal/manageTeacher")}
                 >
                   <ListItemText primary={"Gerenciar"} />
                 </ListItemButton>

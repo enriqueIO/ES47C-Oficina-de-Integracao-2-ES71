@@ -8,10 +8,21 @@ datasource db {
 }
 
 model SystemUser {
-  id       Int    @id @default(autoincrement())
+  id       Int    @id @default(autoincrement()) @map("id")
   name     String @map("nome")
   userName String @unique @map("usuario")
   password String @map("senha")
 
   @@map("usuarios")
+}
+
+model Teacher {
+  id       Int    @id @default(autoincrement()) @map("id")
+  name     String @map("nome")
+  userName String @unique @map("usuario")
+  password String @map("senha")
+  phone    String @map("telefone")
+  email    String @map("e-mail")
+
+  @@map("professores")
 }

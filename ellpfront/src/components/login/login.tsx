@@ -32,7 +32,7 @@ export default function LoginForm() {
       <form onSubmit={handleSubmit} className={styles.loginForm}>
         <h2 className={styles.title}>Login</h2>
         <div className={styles.inputGroup}>
-          <label htmlFor="userName">E-mail</label>
+          <label htmlFor="userName">Usuário</label>
           <input
             type="userName"
             id="userName"
