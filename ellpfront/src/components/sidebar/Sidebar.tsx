@@ -16,7 +16,7 @@ import {
   Work,
   ExpandMore,
   ExpandLess,
-  Home
+  Home,
 } from "@mui/icons-material";
 import Image from "next/image";
 import styles from "./Sidebar.module.css";
@@ -78,7 +78,7 @@ export function Sidebar() {
               </ListItemIcon>
               <ListItemText primary={"Página inicial"} />
             </ListItemButton>
-            </ListItem>
+          </ListItem>
           {/* Professores */}
           <ListItem disablePadding>
             <ListItemButton onClick={() => toggleSubmenu("teachers")}>
@@ -122,9 +122,7 @@ export function Sidebar() {
             <List className={styles.subMenu}>
               <ListItem disablePadding>
                 <ListItemButton
-                  onClick={() =>
-                    redirectToPage("/portal/student/registerStudent")
-                  }
+                  onClick={() => redirectToPage("/portal/registerStudent")}
                 >
                   <ListItemText primary={"Cadastrar"} />
                 </ListItemButton>
