@@ -37,3 +37,14 @@ model Student {
 
   @@map("alunos")
 }
+
+model Workshop {
+  id           Int      @id @default(autoincrement()) @map("id")
+  title        String   @map("titulo")
+  description  String   @unique @map("descricao")
+  professor    String   @map("professor")
+  workshopDate DateTime @map("data")
+  hour         Decimal  @map("horas")
+
+  @@map("workshop")
+}
