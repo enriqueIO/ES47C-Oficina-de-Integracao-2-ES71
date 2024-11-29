@@ -154,7 +154,7 @@ export function Sidebar() {
               <ListItem disablePadding>
                 <ListItemButton
                   onClick={() =>
-                    redirectToPage("/portal/workshop/registerWorkshop")
+                    redirectToPage("/portal/registerWorkshop")
                   }
                 >
                   <ListItemText primary={"Cadastrar"} />
