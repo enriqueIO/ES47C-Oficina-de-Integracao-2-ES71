@@ -41,10 +41,10 @@ model Student {
 model Workshop {
   id           Int      @id @default(autoincrement()) @map("id")
   title        String   @map("titulo")
-  description  String   @unique @map("descricao")
+  description  String   @map("descricao")
   professor    String   @map("professor")
-  workshopDate DateTime @map("data")
-  hour         Decimal  @map("horas")
+  workshopDate String   @map("data")
+  hour         String   @map("horas")
 
   @@map("workshop")
 }
