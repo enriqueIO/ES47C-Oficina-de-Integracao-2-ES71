@@ -7,6 +7,7 @@ import { loginUser } from "@/lib/api/users/validateLogin";
 export default function LoginForm() {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  const [userType, setUserType] = useState("student");
   const [errorMessage, setErrorMessage] = useState("");
   const [color, setColor] = useState("");
 
@@ -14,7 +15,7 @@ export default function LoginForm() {
     e.preventDefault();
 
     try {
-      const result = await loginUser(userName, password);
+      let result = await loginUser(userName, password, userType);
 
       setColor("green");
       setErrorMessage("Login efetuado!");
@@ -32,9 +33,22 @@ export default function LoginForm() {
       <form onSubmit={handleSubmit} className={styles.loginForm}>
         <h2 className={styles.title}>Login</h2>
         <div className={styles.inputGroup}>
+          <label htmlFor="userType">Tipo de Usuário</label>
+          <select
+            id="userType"
+            value={userType}
+            onChange={(e) => setUserType(e.target.value)}
+            className={styles.input}
+            required
+          >
+            <option value="student">Aluno</option>
+            <option value="teacher">Professor</option>
+          </select>
+        </div>
+        <div className={styles.inputGroup}>
           <label htmlFor="userName">Usuário</label>
           <input
-            type="userName"
+            type="text"
             id="userName"
             value={userName}
             onChange={(e) => setUserName(e.target.value)}
