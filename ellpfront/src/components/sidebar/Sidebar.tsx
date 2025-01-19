@@ -130,7 +130,7 @@ export function Sidebar() {
               <ListItem disablePadding>
                 <ListItemButton
                   onClick={() =>
-                    redirectToPage("/portal/student/manageStudents")
+                    redirectToPage("/portal/manageStudent")
                   }
                 >
                   <ListItemText primary={"Gerenciar"} />
