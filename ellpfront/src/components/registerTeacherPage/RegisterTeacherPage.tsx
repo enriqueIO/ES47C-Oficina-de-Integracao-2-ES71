@@ -28,6 +28,12 @@ export function RegisterTeacherPage() {
 
       setColor("green");
       setMessage("Cadastro efetuado com sucesso!");
+
+      setName("");
+      setUserName("");
+      setPassword("");
+      setEmail("");
+      setPhone("");
     } catch (error: any) {
       console.error("Ocorreu um erro ao cadastrar o professor", error);
       setColor("red");
