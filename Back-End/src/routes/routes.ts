@@ -7,6 +7,7 @@ import { deleteTeacherController } from "../controllers/teachers/deleteTeacherCo
 import { updateTeacherController } from "../controllers/teachers/updateTeacherController";
 import { createStudentController } from "../controllers/students/createStudentController";
 import { createWorkshopController } from "../controllers/workshops/createWorkshopController";
+import { getAllStudentsController } from "../controllers/students/getAllStudentsController";
 
 export async function routes(fastify: FastifyInstance) {
   fastify.post("/createUser", createUserController);
@@ -17,4 +18,5 @@ export async function routes(fastify: FastifyInstance) {
   fastify.put("/updateTeacher/:teacherId", updateTeacherController);
   fastify.post("/createStudent", createStudentController);
   fastify.post("/createWorkshop", createWorkshopController);
+  fastify.get("/getAllStudents", getAllStudentsController);
 }
