@@ -5,11 +5,18 @@ import styles from "@/components/manageStudentPage/ManageStudentPage.module.css"
 import { Layout } from "../homepage/Layout";
 import { Student } from "@/entities/Student";
 import { getAllStudents } from "@/lib/api/students/getAllStudents";
-import { FaEdit } from "react-icons/fa";
 import { FaFile } from "react-icons/fa";
+import { CertificateModal } from "./generateCertificateModal/GenerateCertificateModal";
 
 export function ManageStudentPage() {
   const [students, setStudents] = useState<Student[]>([]);
+  const [studentToGenerateCertificate, setSudentToGenerateCertificate] =
+    useState<Student | null>(null);
+
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   const fetchStudents = async () => {
     try {
@@ -46,10 +53,25 @@ export function ManageStudentPage() {
                 <td>
                   <button
                     className={styles.iconButton}
-                    onClick={() => alert(`Editar aluno: ${student.name}`)}
+                    onClick={() => {
+                      setSudentToGenerateCertificate({
+                        name: student.name,
+                        email: student.email,
+                        phone: student.phone,
+                        userName: "",
+                      });
+
+                      handleOpen();
+                    }}
                   >
                     <FaFile size={25} />
                   </button>
+                  <CertificateModal
+                    open={open}
+                    onClose={handleClose}
+                    title="Gerar Certificado"
+                    studentData={studentToGenerateCertificate!}
+                  />
                 </td>
               </tr>
             ))}
