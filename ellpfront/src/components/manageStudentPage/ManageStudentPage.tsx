@@ -5,8 +5,10 @@ import styles from "@/components/manageStudentPage/ManageStudentPage.module.css"
 import { Layout } from "../homepage/Layout";
 import { Student } from "@/entities/Student";
 import { getAllStudents } from "@/lib/api/students/getAllStudents";
-import { FaFile } from "react-icons/fa";
+import { FileDownload } from "@mui/icons-material";
+import { InsertDriveFile } from "@mui/icons-material";
 import { CertificateModal } from "./generateCertificateModal/GenerateCertificateModal";
+import { Button } from "@mui/material";
 
 export function ManageStudentPage() {
   const [students, setStudents] = useState<Student[]>([]);
@@ -51,8 +53,9 @@ export function ManageStudentPage() {
                 <td>{student.email}</td>
                 <td>{student.phone}</td>
                 <td>
-                  <button
-                    className={styles.iconButton}
+                  <Button
+                    variant="contained"
+                    color="primary"
                     onClick={() => {
                       setSudentToGenerateCertificate({
                         name: student.name,
@@ -63,9 +66,10 @@ export function ManageStudentPage() {
 
                       handleOpen();
                     }}
+                    startIcon={<InsertDriveFile sx={{ fontSize: 25 }} />}
                   >
-                    <FaFile size={25} />
-                  </button>
+                    Gerar certificado
+                  </Button>
                   <CertificateModal
                     open={open}
                     onClose={handleClose}

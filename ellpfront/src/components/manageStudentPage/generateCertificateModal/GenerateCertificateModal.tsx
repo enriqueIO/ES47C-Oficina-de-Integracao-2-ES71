@@ -1,7 +1,9 @@
+import styles from "./GenerateCertificateModal.module.css";
 import React, { FC, useState } from "react";
 import { Modal, Typography, Button, Box, TextField } from "@mui/material";
-import styles from "./GenerateCertificateModal.module.css";
 import { Student } from "@/entities/Student";
+import { CertificateDocument } from "../certificateDocument/CertificateDocument";
+import { pdf } from "@react-pdf/renderer";
 
 interface Props {
   open: boolean;
@@ -13,11 +15,32 @@ interface Props {
 const CertificateModal: FC<Props> = ({ open, onClose, title, studentData }) => {
   const [cycle, setCycle] = useState<string>("");
   const [totalHours, setTotalHours] = useState<string>("");
+  const [formValid, setFormValid] = useState<boolean>(true);
 
-  const handleGenerateCertificate = () => {
-    console.log("Ciclo:", cycle);
-    console.log("Carga horária total:", totalHours);
-    onClose();
+  const handleGeneratePDF = async () => {
+    // Validando os campos
+    if (!cycle || !totalHours) {
+      setFormValid(false);
+      return;
+    }
+    setFormValid(true);
+
+    // Gerar o PDF
+    const doc = (
+      <CertificateDocument
+        studentData={studentData}
+        hours={totalHours}
+        cycle={cycle}
+        logoUrl="https://grupoellp.com.br/assets/imagens/logo-navbar.png"
+      />
+    );
+
+    // Gerar e baixar o PDF
+    const blob = await pdf(doc).toBlob();
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = `${studentData?.name}.pdf`;
+    link.click();
   };
 
   return (
@@ -29,37 +52,57 @@ const CertificateModal: FC<Props> = ({ open, onClose, title, studentData }) => {
           </Typography>
         )}
 
-        <TextField
-          label="Ciclo (Período)"
-          variant="outlined"
-          fullWidth
-          margin="normal"
-          value={cycle}
-          onChange={(e) => setCycle(e.target.value)}
-        />
+        <form onSubmit={(e) => e.preventDefault()}>
+          <TextField
+            label="Ciclo (Período)"
+            variant="outlined"
+            fullWidth
+            margin="normal"
+            value={cycle}
+            onChange={(e) => setCycle(e.target.value)}
+            required
+            error={!formValid && !cycle}
+            helperText={!formValid && !cycle ? "Este campo é obrigatório" : ""}
+          />
 
-        <TextField
-          label="Carga Horária Total"
-          variant="outlined"
-          fullWidth
-          margin="normal"
-          type="number"
-          value={totalHours}
-          onChange={(e) => setTotalHours(e.target.value)}
-        />
+          <TextField
+            label="Carga Horária Total"
+            variant="outlined"
+            fullWidth
+            margin="normal"
+            value={totalHours}
+            onChange={(e) => setTotalHours(e.target.value)}
+            required
+            error={!formValid && !totalHours}
+            helperText={
+              !formValid && !totalHours ? "Este campo é obrigatório" : ""
+            }
+          />
 
-        <Box display="flex" justifyContent="flex-end" mt={2}>
-          <Button
-            variant="contained"
-            onClick={handleGenerateCertificate}
-            sx={{ mr: 2 }}
-          >
-            Gerar Certificado
-          </Button>
-          <Button variant="outlined" onClick={onClose}>
-            Fechar
-          </Button>
-        </Box>
+          <Box display="flex" justifyContent="flex-end" mt={2}>
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={handleGeneratePDF}
+              sx={{
+                fontSize: 16,
+                padding: "8px 20px",
+                borderRadius: "8px",
+                marginRight: "0.5rem",
+                boxShadow: 3,
+                "&:hover": {
+                  boxShadow: 6,
+                  backgroundColor: "#1976d2",
+                },
+              }}
+            >
+              Gerar
+            </Button>
+            <Button variant="outlined" onClick={onClose}>
+              Fechar
+            </Button>
+          </Box>
+        </form>
       </Box>
     </Modal>
   );
