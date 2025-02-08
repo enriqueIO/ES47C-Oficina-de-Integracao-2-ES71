@@ -4,6 +4,7 @@ import { Modal, Typography, Button, Box, TextField } from "@mui/material";
 import { Student } from "@/entities/Student";
 import { CertificateDocument } from "../certificateDocument/CertificateDocument";
 import { pdf } from "@react-pdf/renderer";
+import { createCertificate } from "../../../lib/api/certificates/createCertificate";
 
 interface Props {
   open: boolean;
@@ -35,10 +36,19 @@ const CertificateModal: FC<Props> = ({ open, onClose, title, studentData }) => {
       />
     );
 
-    // Gerar e baixar o PDF
+    // Gerar o PDF como Blob
     const blob = await pdf(doc).toBlob();
+    const pdfUrl = URL.createObjectURL(blob);
+
+    // Salvar o link no backend
+    const savedCertificate = await createCertificate({
+      studentId: studentData.id,
+      pdfLink: pdfUrl,
+    });
+
+    // Fazer o download do PDF
     const link = document.createElement("a");
-    link.href = URL.createObjectURL(blob);
+    link.href = pdfUrl;
     link.download = `${studentData?.name}.pdf`;
     link.click();
   };

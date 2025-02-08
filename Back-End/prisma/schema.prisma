@@ -34,8 +34,16 @@ model Student {
   password String @map("senha")
   phone    String @map("telefone")
   email    String @map("e-mail")
-
+  certificates Certificate[]
   @@map("alunos")
+}
+
+model Certificate {
+  id        Int      @id @default(autoincrement())
+  pdfLink   String
+  studentId Int
+  student   Student  @relation(fields: [studentId], references: [id])
+  createdAt DateTime @default(now())
 }
 
 model Workshop {
