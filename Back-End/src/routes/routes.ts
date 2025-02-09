@@ -10,6 +10,9 @@ import { createWorkshopController } from "../controllers/workshops/createWorksho
 import { getAllStudentsController } from "../controllers/students/getAllStudentsController";
 import { createCertificateController } from "../controllers/certificates/createCertificateController";
 import { getCertificatesByStudentIdController } from "../controllers/certificates/getCertificatesByStudentIdController";
+import { getAllWorkshopsController } from "../controllers/workshops/getAllWorkshopsController";
+import { addStudentToWorkshopController } from "../controllers/workshops/addStudentToWorkshopController";
+import { getStudentsByWorkshopIdController } from "../controllers/workshops/getStudentsByWorkshopIdController";
 
 export async function routes(fastify: FastifyInstance) {
   fastify.post("/createUser", createUserController);
@@ -23,4 +26,7 @@ export async function routes(fastify: FastifyInstance) {
   fastify.get("/getAllStudents", getAllStudentsController);
   fastify.post("/certificates", createCertificateController);
   fastify.get("/certificates/:studentId", getCertificatesByStudentIdController);
+  fastify.get("/workshops/:workshopId/students", getStudentsByWorkshopIdController);
+  fastify.get("/workshops", getAllWorkshopsController);
+  fastify.post('/workshops/add-student', addStudentToWorkshopController);
 }

@@ -28,13 +28,15 @@ model Teacher {
 }
 
 model Student {
-  id       Int    @id @default(autoincrement()) @map("id")
-  name     String @map("nome")
-  userName String @unique @map("usuario")
-  password String @map("senha")
-  phone    String @map("telefone")
-  email    String @map("e-mail")
+  id          Int                @id @default(autoincrement()) @map("id")
+  name        String             @map("nome")
+  userName    String             @unique @map("usuario")
+  password    String             @map("senha")
+  phone       String             @map("telefone")
+  email       String             @map("e-mail")
   certificates Certificate[]
+  workshops    StudentWorkshop[]  // Relacionamento com workshops
+
   @@map("alunos")
 }
 
@@ -47,12 +49,24 @@ model Certificate {
 }
 
 model Workshop {
-  id           Int      @id @default(autoincrement()) @map("id")
-  title        String   @map("titulo")
-  description  String   @map("descricao")
-  professor    String   @map("professor")
-  workshopDate String   @map("data")
-  hour         String   @map("horas")
+  id           Int                @id @default(autoincrement()) @map("id")
+  title        String             @map("titulo")
+  description  String             @map("descricao")
+  professor    String             @map("professor")
+  workshopDate String             @map("data")
+  hour         String             @map("horas")
+  students     StudentWorkshop[]  // Relacionamento com alunos
 
   @@map("workshop")
+}
+
+model StudentWorkshop {
+  id         Int      @id @default(autoincrement())
+  studentId  Int
+  workshopId Int
+  student    Student  @relation(fields: [studentId], references: [id])
+  workshop   Workshop @relation(fields: [workshopId], references: [id])
+  createdAt  DateTime @default(now())
+
+  @@unique([studentId, workshopId]) // Garante que o aluno nÃ£o seja cadastrado duas vezes no mesmo workshop
 }

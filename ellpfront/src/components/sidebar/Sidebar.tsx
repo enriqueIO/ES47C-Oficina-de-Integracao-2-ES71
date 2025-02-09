@@ -70,7 +70,6 @@ export function Sidebar() {
         </Toolbar>
         <Divider />
         <List>
-          {/* Voltar */}
           <ListItem disablePadding>
             <ListItemButton onClick={() => redirectToPage("/portal")}>
               <ListItemIcon>
@@ -79,6 +78,7 @@ export function Sidebar() {
               <ListItemText primary={"Página inicial"} />
             </ListItemButton>
           </ListItem>
+
           {/* Professores */}
           <ListItem disablePadding>
             <ListItemButton onClick={() => toggleSubmenu("teachers")}>
@@ -96,13 +96,6 @@ export function Sidebar() {
                   onClick={() => redirectToPage("/portal/registerTeacher")}
                 >
                   <ListItemText primary={"Cadastrar"} />
-                </ListItemButton>
-              </ListItem>
-              <ListItem disablePadding>
-                <ListItemButton
-                  onClick={() => redirectToPage("/portal/manageTeacher")}
-                >
-                  <ListItemText primary={"Gerenciar"} />
                 </ListItemButton>
               </ListItem>
             </List>
@@ -129,9 +122,7 @@ export function Sidebar() {
               </ListItem>
               <ListItem disablePadding>
                 <ListItemButton
-                  onClick={() =>
-                    redirectToPage("/portal/manageStudent")
-                  }
+                  onClick={() => redirectToPage("/portal/manageStudent")}
                 >
                   <ListItemText primary={"Gerenciar"} />
                 </ListItemButton>
@@ -153,18 +144,14 @@ export function Sidebar() {
             <List className={styles.subMenu}>
               <ListItem disablePadding>
                 <ListItemButton
-                  onClick={() =>
-                    redirectToPage("/portal/registerWorkshop")
-                  }
+                  onClick={() => redirectToPage("/portal/registerWorkshop")}
                 >
                   <ListItemText primary={"Cadastrar"} />
                 </ListItemButton>
               </ListItem>
               <ListItem disablePadding>
                 <ListItemButton
-                  onClick={() =>
-                    redirectToPage("/portal/workshop/manageWorkshops")
-                  }
+                  onClick={() => redirectToPage("/portal/manageWorkshop")}
                 >
                   <ListItemText primary={"Gerenciar"} />
                 </ListItemButton>
