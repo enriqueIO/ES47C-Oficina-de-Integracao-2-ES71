@@ -11,7 +11,6 @@ export const getAllStudents = async () => {
     return response.data;
   } catch (error: any) {
     console.error("Erro ao buscar os alunos:", error);
-    // Pode exibir uma mensagem de erro amigável ou lançar a exceção para controle no front end
     throw new Error(
       error.response?.data?.message || "Falha ao buscar os alunos"
     );

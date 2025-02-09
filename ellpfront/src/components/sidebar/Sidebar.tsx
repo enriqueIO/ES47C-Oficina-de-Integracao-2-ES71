@@ -78,8 +78,6 @@ export function Sidebar() {
               <ListItemText primary={"Página inicial"} />
             </ListItemButton>
           </ListItem>
-
-          {/* Professores */}
           <ListItem disablePadding>
             <ListItemButton onClick={() => toggleSubmenu("teachers")}>
               <ListItemIcon>
@@ -101,7 +99,6 @@ export function Sidebar() {
             </List>
           )}
 
-          {/* Alunos */}
           <ListItem disablePadding>
             <ListItemButton onClick={() => toggleSubmenu("students")}>
               <ListItemIcon>
@@ -130,7 +127,6 @@ export function Sidebar() {
             </List>
           )}
 
-          {/* Workshops */}
           <ListItem disablePadding>
             <ListItemButton onClick={() => toggleSubmenu("workshops")}>
               <ListItemIcon>
