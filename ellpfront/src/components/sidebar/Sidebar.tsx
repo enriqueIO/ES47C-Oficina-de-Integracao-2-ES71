@@ -145,6 +145,13 @@ export function Sidebar() {
                   <ListItemText primary={"Cadastrar"} />
                 </ListItemButton>
               </ListItem>
+              <ListItem disablePadding>
+                <ListItemButton
+                  onClick={() => redirectToPage("/portal/manageWorkshop")}
+                >
+                  <ListItemText primary={"Gerenciar"} />
+                </ListItemButton>
+              </ListItem>
             </List>
           )}
         </List>
