@@ -78,5 +78,5 @@ M --> L;
 #### Sprint 2
 - Inclusão de alunos voluntários em workshops
 - Geração de certificados para os alunos voluntários
-- Assinatura dos certificados pelo coordenador
+- Assinatura dos certificados pelo coordenador (ALTERADO PARA A FUNCIONALIDADE CALENDÁRIO DE WORKSHOPS) 
 - Busca de certificados para os alunos voluntários
