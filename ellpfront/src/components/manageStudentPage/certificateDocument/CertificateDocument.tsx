@@ -9,38 +9,37 @@ import {
 } from "@react-pdf/renderer";
 import { Student } from "@/entities/Student";
 
-// Definindo estilos com uma paleta de cores mais suave e um layout centralizado
 const styles = StyleSheet.create({
   page: {
     flexDirection: "column",
     padding: 40,
-    backgroundColor: "#f0f8ff", // Cor suave de fundo
+    backgroundColor: "#f0f8ff",
   },
   section: {
     margin: "auto",
     width: "90%",
     padding: 40,
-    border: "2px solid #00796b", // Bordas com uma cor verde suave
+    border: "2px solid #00796b",
     borderRadius: 10,
     backgroundColor: "#ffffff",
-    textAlign: "center", // Centraliza todo o conteúdo dentro da seção
+    textAlign: "center",
     display: "flex",
     alignItems: "center",
   },
   header: {
     fontSize: 24,
     fontWeight: "bold",
-    color: "#00796b", // Cor verde
+    color: "#00796b",
     marginBottom: 20,
   },
   logo: {
-    width: 230, // Tamanho da logo
+    width: 230,
     marginBottom: 20,
   },
   text: {
     fontSize: 16,
     marginBottom: 10,
-    color: "#333333", // Cor para o texto
+    color: "#333333",
     lineHeight: 1.5,
   },
   boldText: {
@@ -49,12 +48,12 @@ const styles = StyleSheet.create({
   footer: {
     marginTop: 30,
     fontSize: 14,
-    color: "#00796b", // Cor para o rodapé
+    color: "#00796b",
     fontStyle: "italic",
   },
   signatureSection: {
     marginTop: 40,
-    borderTop: "1px solid #00796b", // Linha superior para a seção de assinatura
+    borderTop: "1px solid #00796b",
     paddingTop: 10,
     textAlign: "center",
   },
@@ -65,7 +64,7 @@ const styles = StyleSheet.create({
   signatureLine: {
     marginTop: 30,
     width: "60%",
-    borderBottom: "1px solid #333333", // Linha de assinatura
+    borderBottom: "1px solid #333333",
     marginLeft: "auto",
     marginRight: "auto",
   },
@@ -81,7 +80,7 @@ interface Props {
   studentData: Student;
   cycle: string;
   hours: string;
-  logoUrl: string; // URL da logo
+  logoUrl: string;
 }
 
 const CertificateDocument: FC<Props> = ({
@@ -94,7 +93,6 @@ const CertificateDocument: FC<Props> = ({
     <Document>
       <Page size="A4" style={styles.page}>
         <View style={styles.section}>
-          {/* Logo centralizada */}
           <Image src={logoUrl} style={styles.logo} />
           <Text style={styles.header}>Certificado de Participação</Text>
           <Text style={styles.text}>
@@ -115,7 +113,6 @@ const CertificateDocument: FC<Props> = ({
           </Text>
         </View>
 
-        {/* Seção de Assinatura do Coordenador */}
         <View style={styles.signatureSection}>
           <Text style={styles.coordinatorTitle}>Assinatura do Coordenador</Text>
         </View>

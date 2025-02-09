@@ -19,14 +19,12 @@ const CertificateModal: FC<Props> = ({ open, onClose, title, studentData }) => {
   const [formValid, setFormValid] = useState<boolean>(true);
 
   const handleGeneratePDF = async () => {
-    // Validando os campos
     if (!cycle || !totalHours) {
       setFormValid(false);
       return;
     }
     setFormValid(true);
 
-    // Gerar o PDF
     const doc = (
       <CertificateDocument
         studentData={studentData}
@@ -36,17 +34,14 @@ const CertificateModal: FC<Props> = ({ open, onClose, title, studentData }) => {
       />
     );
 
-    // Gerar o PDF como Blob
     const blob = await pdf(doc).toBlob();
     const pdfUrl = URL.createObjectURL(blob);
 
-    // Salvar o link no backend
     const savedCertificate = await createCertificate({
       studentId: studentData.id,
       pdfLink: pdfUrl,
     });
 
-    // Fazer o download do PDF
     const link = document.createElement("a");
     link.href = pdfUrl;
     link.download = `${studentData?.name}.pdf`;
